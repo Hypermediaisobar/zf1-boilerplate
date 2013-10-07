@@ -1,0 +1,27 @@
+<?php
+
+/**
+ * @var $this My_View
+ * @var $e Exception
+ */
+
+?>
+
+<h1>Ooops ! We have a problem !</h1>
+
+<?if(APPLICATION_ENV == 'development'):?>
+
+    <h2>Exception of type: <?=get_class($e)?></h2>
+    <p class="lead">
+        <?=$e->getMessage()?><br>
+        <?=$e->getFile().':'.$e->getLine()?>
+    </p>
+    <pre><?=$e->getTraceAsString()?></pre>
+
+<?else:?>
+
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.
+
+<?endif;?>
+
