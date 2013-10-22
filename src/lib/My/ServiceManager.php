@@ -17,11 +17,16 @@
  * @method Facebook getFacebook()
  * @method Zend_Config getFacebookConfig()
  * @method Zend_Log getLog()
+ * @method My_Model getModel()
  */
 class My_ServiceManager extends \Skajdo\Container\Container
 {
     public function __construct(){
         parent::__construct();
+
+        $this['model'] = $this->share(function(My_ServiceManager $sm){
+            return new My_Model();
+        });
 
         $this['request'] = $this->share(function(My_ServiceManager $sm){
             return new Zend_Controller_Request_Http();
@@ -54,6 +59,8 @@ class My_ServiceManager extends \Skajdo\Container\Container
 
         $this['view'] = $this->share(function(My_ServiceManager $sm){
             $view = new My_View();
+            $view->setRequest($sm->getRequest());
+
             $layout = Zend_Layout::startMvc();
             $layout
                 ->setView($view)

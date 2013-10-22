@@ -18,7 +18,7 @@
         "php":">=5.3",
         "skajdo/zf1": "*",
         "facebook/php-sdk": "*",
-        "skajdo/container": "1.0.*"
-
+        "skajdo/container": "1.0.*",
+        "michelf/php-markdown": "1.3"
     }
 }

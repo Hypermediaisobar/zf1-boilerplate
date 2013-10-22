@@ -12,6 +12,16 @@ class IndexController extends My_Controller
     public function indexAction()
     {
         $this->getServiceManager()->getLog()->log('This is a test !', Zend_Log::INFO);
+
+        $article = $this->getServiceManager()->getModel()->getFrontPageArticle();
+        $article = \Michelf\Markdown::defaultTransform($article);
+
+        $this->view->article = $article;
+        $this->view->facebook = $this->getServiceManager()->getFacebook();
+    }
+
+    public function facebookAction()
+    {
         $this->view->facebook = $this->getServiceManager()->getFacebook();
     }
 }
