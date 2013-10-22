@@ -11,6 +11,7 @@ class IndexController extends My_Controller
      */
     public function indexAction()
     {
+        $this->getServiceManager()->getLog()->log('This is a test !', Zend_Log::INFO);
         $this->view->facebook = $this->getServiceManager()->getFacebook();
     }
 }

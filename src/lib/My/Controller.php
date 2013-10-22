@@ -37,4 +37,21 @@ class My_Controller extends Zend_Controller_Action implements Zend_Controller_Ac
     {
         return $this->serviceManager;
     }
+
+    /**
+     * @return Zend_Layout_Controller_Action_Helper_Layout
+     */
+    public function getLayout()
+    {
+        return $this->getHelper('layout');
+    }
+
+    /**
+     * @return Zend_Controller_Action_Helper_ViewRenderer
+     */
+    public function getViewRenderer()
+    {
+        /** @var $renderer Zend_Controller_Action_Helper_ViewRenderer */
+        return Zend_Controller_Action_HelperBroker::getStaticHelper('viewRenderer');
+    }
 }

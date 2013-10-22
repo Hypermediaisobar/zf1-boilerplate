@@ -1,9 +1,11 @@
 #Zend Framework 1 for Facebook Boilerplate App
 
+Single module application using DI container.
+
 ##Features
 
-- easy to deply
-- has its own DI container based on Pimple (very easy to use and fast)
+- easy to deploy
+- has its own DI container based on [Pimple](http://pimple.sensiolabs.org/) (very easy to use and fast)
 - you have your own controller and view implementations; you can do whatever you want
 - DI container is fully compatible with code completion functions in your IDE (PHPStorm tested)
 - no more bootstrapping horror - plain old PHP will do !

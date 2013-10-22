@@ -7,10 +7,8 @@ class ErrorController extends My_Controller
 {
     /**
      * Handle error and display message
-     *
-     * @param string $action
      */
-    public function dispatch($action)
+    public function errorAction()
     {
         if(!$this->hasParam('error_handler')){
             $this->forward('index', 'index');
@@ -21,8 +19,6 @@ class ErrorController extends My_Controller
         $e = $eh['exception'];
 
         $this->getResponse()->setHttpResponseCode(500);
-
         $this->view->e = $e;
-        $this->renderScript('error/index.phtml');
     }
 }
