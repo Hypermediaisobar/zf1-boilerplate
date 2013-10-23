@@ -1,30 +1,18 @@
 <?php
 
 /**
- * Bootstrap script for Zend For Facebook
+ * Bootstrap script for ZF1 boilerplate
  * @author Jacek Kobus
  */
 
 try {
 
-    $config = new Zend_Config(include_once(__DIR__ . '/config.php'));
-    $container = new My_ServiceManager();
-    $container
-        ->setConfig($config)
-        ->setEnvironment(APPLICATION_ENV);
+    $app = new My_Application(
+        new Zend_Config(include_once(__DIR__ . '/config.php')),
+        new My_ServiceManager(), APPLICATION_ENV
+    );
 
-    // Compatibility with ZF1 concepts
-    // replace Zend_Registry with our proxy-container containing DI container
-    // this must be done BEFORE anything else !
-    Zend_Registry::setInstance(new My_Registry($container));
-    /** @var $renderer Zend_Controller_Action_Helper_ViewRenderer */
-    $renderer = Zend_Controller_Action_HelperBroker::getStaticHelper('viewRenderer');
-    $renderer->setView($container->getView());
-
-    // modify the request object if you want to
-    $request = $container->getRequest();
-    $response = $container->getFrontController()->dispatch($request);
-    $response->sendResponse();
+    $app->handle()->sendResponse();
 
 }catch (Exception $e){
     if(APPLICATION_ENV == 'development'){
