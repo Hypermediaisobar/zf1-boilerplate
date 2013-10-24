@@ -1,6 +1,6 @@
 {
-    "name": "skajdo/zend-for-facebook",
-    "description": "Simple ZF1 implementation to quickly create an app for facebook",
+    "name": "skajdo/zf1-boilerplate",
+    "description": "Simple ZF1 implementation to quickly create a ZF1 application",
     "license": "MIT",
     "authors": [
         {
