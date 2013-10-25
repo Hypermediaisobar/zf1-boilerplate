@@ -35,7 +35,7 @@ See **composer.json** for a full list of dependencies.
 
 ###Authors
 
-Jacek Kobus - <kobus.jacek@gmail.com>
+Jacek Kobus <j.kobus@hypermediaisobar.com>
 
 ###License information
 
