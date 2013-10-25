@@ -17,7 +17,7 @@ Install [Composer](http://getcomposer.org/) (if you don't have it yet, get it. Y
 
 Run:
 
-    composer create-project -s dev skajdo/zend-for-facebook ./app-for-facebook
+    composer create-project -s dev skajdo/zf1-boilerplate ./app-name-here
 
 Now get to work !
 
