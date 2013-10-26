@@ -8,7 +8,8 @@
 return array(
 
     'app' => array(
-        'controllers' => './controllers',
+        'default-module' => 'client', // default module
+        'modules' => array('client', 'admin'), // enabled modules
         'base-url' => null, // autodetect
         'display-exceptions' => APPLICATION_ENV != 'production',
         'throw-exceptions' => false && APPLICATION_ENV == 'development',

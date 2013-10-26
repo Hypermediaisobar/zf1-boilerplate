@@ -13,9 +13,9 @@
  * @method Zend_Controller_Front getFrontController()
  * @method Zend_Controller_Request_Http getRequest()
  * @method Zend_Controller_Router_Interface getRouter()
+ * @method Zend_Controller_Dispatcher_Interface getDispatcher()
  * @method My_View getView()
  * @method Facebook getFacebook()
- * @method Zend_Config getFacebookConfig()
  * @method Zend_Log getLog()
  * @method My_Model getModel()
  */
@@ -36,6 +36,10 @@ class My_ServiceManager extends \Skajdo\Container\Container
             return new Zend_Controller_Router_Rewrite();
         });
 
+        $this['dispatcher'] = $this->share(function(My_ServiceManager $sm){
+            return new Zend_Controller_Dispatcher_Standard();
+        });
+
         $this['frontcontroller'] = /* an alias */
         $this['front_controller'] = $this->share(function(My_ServiceManager $sm){
 
@@ -45,12 +49,15 @@ class My_ServiceManager extends \Skajdo\Container\Container
                 $fc = Zend_Controller_Front::getInstance();
                 $fc
                     ->setRequest($sm->getRequest())
-                    ->setParam('service_manager', $sm)
-                    ->setParam('displayExceptions', $options->get('display-exceptions'))
                     ->throwExceptions($options->get('throw-exceptions', false))
                     ->setBaseUrl($options->get('base-url', null))
-                    ->setControllerDirectory($options->get('controllers'))
                     ->setRouter($sm->getRouter())
+                    ->setDispatcher($sm->getDispatcher())
+
+                    ->setParam('service_manager', $sm)
+                    ->setParam('displayExceptions', $options->get('display-exceptions'))
+                    ->setDefaultModule($options->get('default-module'))
+                    ->addModuleDirectory('./modules')
                     ->returnResponse(true)
                 ;
 
@@ -59,22 +66,21 @@ class My_ServiceManager extends \Skajdo\Container\Container
 
         $this['view'] = $this->share(function(My_ServiceManager $sm){
             $view = new My_View();
-            $view->setRequest($sm->getRequest());
+            $view->setRequest($sm->getRequest())
+                ->addScriptPath('./views')
+                ->addScriptPath('./views/scripts')
+                ->addScriptPath('./views/layouts')
+            ;
 
             $layout = Zend_Layout::startMvc();
             $layout
                 ->setView($view)
-                ->setLayoutPath('./views/layouts')
-                ->setLayout('default');
+                ->setLayout('default')
+            ;
             return $view;
         });
 
-        $this['facebook_config'] = $this->share(function(My_ServiceManager $sm){
-            return $sm->getConfig()->get('facebook');
-        });
-
         $this['facebook'] = $this->share(function(My_ServiceManager $sm){
-
             /** @var Zend_Config $options */
             $options = $sm->getConfig()->get('facebook');
             $fbConfig = array(

@@ -113,6 +113,4 @@ class My_Application
         $response = $this->getServiceManager()->getFrontController()->dispatch($request, $response);
         return $response;
     }
-
-//    public function addPlugin(Zend_Controller_Plugin_Abstract $plugin){}
 }
