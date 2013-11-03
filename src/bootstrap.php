@@ -4,7 +4,6 @@
  * Bootstrap script for ZF1 boilerplate
  * @author Jacek Kobus
  */
-
 try {
 
     $app = new My_Application(
@@ -21,3 +20,4 @@ try {
         printf('Something is broken and we are fixing it right now !');
     }
 }
+
