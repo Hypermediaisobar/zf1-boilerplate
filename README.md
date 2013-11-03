@@ -40,3 +40,6 @@ Jacek Kobus - <kobus.jacek@gmail.com>
 ###License information (MIT)
 
     See the file LICENSE.txt for copying permission.
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/jkobus/zf1-boilerplate/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
