@@ -1,19 +1,17 @@
 #ZF1 Boilerplate App (work in progress)
 [![Build Status](https://travis-ci.org/jkobus/zf1-boilerplate.png?branch=master)](https://travis-ci.org/jkobus/zf1-boilerplate)
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/jkobus/zf1-boilerplate/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 
 This application is intended to be used in small or medium sized projects.
 
 ###Features
 
 - easy to deploy
-- has its own **DI** container based on [Pimple](http://pimple.sensiolabs.org/) (very easy to use and fast)
+- has its own DI container based on [Pimple](http://pimple.sensiolabs.org/) (very easy to use and fast)
 - you have your own controller and view implementations; you can do whatever you want
 - DI container is fully compatible with code completion functions in your IDE (PHPStorm tested)
 - no more bootstrapping horror - plain old PHP will do !
 - code completion for helpers and view methods - see instructions inside views !
-- modular structure
-- easy testing (see ./tests) with code coverage
-- ability to create and register **service providers** to reuse them in other applications
 
 ###Installation
 
@@ -21,13 +19,7 @@ Install [Composer](http://getcomposer.org/) (if you don't have it yet, get it. Y
 
 Run:
 
-    composer create-project -s dev skajdo/zf1-boilerplate ./app-name-here
-
-Running tests:
-
-    php tests/run.php
-
-or open **run.php** in your browser.
+    composer create-project -s dev skajdo/zend-for-facebook ./app-for-facebook
 
 Now get to work !
 
@@ -45,8 +37,8 @@ See **composer.json** for a full list of dependencies.
 
 ###Authors
 
-Jacek Kobus <j.kobus@hypermediaisobar.com>
+Jacek Kobus - <kobus.jacek@gmail.com>
 
-###License information
+###License information (MIT)
 
     See the file LICENSE.txt for copying permission.
