@@ -13,7 +13,7 @@ return array(
         'base-url' => null, // autodetect
         'display-exceptions' => APPLICATION_ENV != 'production',
         'throw-exceptions' => false && APPLICATION_ENV == 'development',
-        'log-path' => '../log',
+        'log-path' => APPLICATION_PATH . '/../log',
         'log-priority' => APPLICATION_ENV == 'development' ? Zend_Log::DEBUG : Zend_Log::WARN,
     ),
 

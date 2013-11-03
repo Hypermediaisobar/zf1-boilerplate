@@ -57,7 +57,7 @@ class My_ServiceManager extends \Skajdo\Container\Container
                     ->setParam('service_manager', $sm)
                     ->setParam('displayExceptions', $options->get('display-exceptions'))
                     ->setDefaultModule($options->get('default-module'))
-                    ->addModuleDirectory('./modules')
+                    ->addModuleDirectory($sm->getApplicationPath() . '/modules')
                     ->returnResponse(true)
                 ;
 
@@ -67,9 +67,9 @@ class My_ServiceManager extends \Skajdo\Container\Container
         $this['view'] = $this->share(function(My_ServiceManager $sm){
             $view = new My_View();
             $view->setRequest($sm->getRequest())
-                ->addScriptPath('./views')
-                ->addScriptPath('./views/scripts')
-                ->addScriptPath('./views/layouts')
+                ->addScriptPath($sm->getApplicationPath('/views'))
+                ->addScriptPath($sm->getApplicationPath('/views/scripts'))
+                ->addScriptPath($sm->getApplicationPath('/views/layouts'))
             ;
 
             $layout = Zend_Layout::startMvc();
@@ -112,38 +112,47 @@ class My_ServiceManager extends \Skajdo\Container\Container
      */
     public function getEnvironment()
     {
-        return $this['environment'];
+        return $this->getApplication()->getEnvironment();
     }
 
     /**
-     * @param $env
-     * @return $this
-     */
-    public function setEnvironment($env)
-    {
-        $this['environment'] = $env;
-        return $this;
-    }
-
-    /**
-     * Set application config
-     *
-     * @param Zend_Config $config
-     * @return $this
-     */
-    public function setConfig(Zend_Config $config)
-    {
-        $this['config'] = $config;
-        return $this;
-    }
-
-    /**
-     * Application config
-     *
      * @return Zend_Config
      */
     public function getConfig()
     {
-        return $this['config'];
+        return $this->getApplication()->getConfig();
+    }
+
+    /**
+     * Get application path, attempt to fix paths, detect dead paths.
+     *
+     * @param string $relativePath Optional
+     * @return string
+     */
+    public function getApplicationPath($relativePath = null)
+    {
+        $path = $this->getApplication()->getApplicationPath();
+        if($relativePath){
+            $path = $path . DIRECTORY_SEPARATOR . ltrim($relativePath, '\/');
+        }
+        return $path;
+    }
+
+    /**
+     * @param My_Application $app
+     * @return $this
+     */
+    public function setApplication(My_Application $app)
+    {
+        $this['application'] = $app;
+        return $this;
+    }
+
+    /**
+     * @return My_Application
+     */
+    public function getApplication()
+    {
+        return $this['application'];
     }
 }

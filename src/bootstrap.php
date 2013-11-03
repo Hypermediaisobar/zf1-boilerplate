@@ -8,8 +8,8 @@
 try {
 
     $app = new My_Application(
-        new Zend_Config(include_once(__DIR__ . '/config.php')),
-        new My_ServiceManager(), APPLICATION_ENV
+        new Zend_Config(include(APPLICATION_PATH . '/config.php')),
+        new My_ServiceManager(), APPLICATION_PATH, APPLICATION_ENV
     );
 
     $app->handle()->sendResponse();
