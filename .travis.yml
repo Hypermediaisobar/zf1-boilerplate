@@ -1,11 +1,11 @@
 language: php
 php:
   - 5.3.26
-  - 5.3.3
   - 5.4
   - 5.5
 
 script: php ./tests/run.php ./tests
 before_script:
+   - echo 'short_open_tag = true' >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
    - composer self-update
    - composer install --verbose
