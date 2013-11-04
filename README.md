@@ -1,6 +1,8 @@
 #ZF1 Boilerplate App (work in progress)
 [![Build Status](https://travis-ci.org/jkobus/zf1-boilerplate.png?branch=master)](https://travis-ci.org/jkobus/zf1-boilerplate)
 [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/jkobus/zf1-boilerplate/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+[![Latest Stable Version](https://poser.pugx.org/skajdo/zf1-boilerplate/v/stable.png)](https://packagist.org/packages/skajdo/zf1-boilerplate)
+[![Dependencies Status](https://d2xishtp1ojlk0.cloudfront.net/d/13387588)](http://depending.in/jkobus/zf1-boilerplate)
 
 This application is intended to be used in small or medium sized projects.
 
