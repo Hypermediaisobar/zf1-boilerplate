@@ -4,7 +4,7 @@ php:
   - 5.4
   - 5.5
 
-script: php ./tests/run.php ./tests
+script: v./endor/bin/phpunit -c ./tests/config.xml ./tests/fixtures
 before_script:
    - echo 'short_open_tag = true' >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
    - composer self-update

@@ -1,5 +1,7 @@
 tests/reports
 ~tests/reports/.gitkeep
+build/report
+~build/report/.gitkeep
 vendor
 .idea
 composer.lock

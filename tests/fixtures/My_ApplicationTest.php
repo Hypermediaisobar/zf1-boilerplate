@@ -1,14 +1,9 @@
 <?php
 
-require_once(__DIR__ . '/../bootstrap.php');
-
 /**
- * Test requests
- * New application is beeing created for each test
- * @todo implement dom crawler
+ * Class My_ApplicationTest
  */
-class ApplicationTest extends \Skajdo\TestSuite\Test\TestFixture
-{
+class My_ApplicationTest extends PHPUnit_Framework_TestCase {
     /**
      * @var My_Application
      */
@@ -46,8 +41,8 @@ class ApplicationTest extends \Skajdo\TestSuite\Test\TestFixture
         $this->request->setRequestUri('/index');
         $response = $this->app->handle($this->request);
 
-        $this->assert()->isIdentical(200, $response->getHttpResponseCode());
-        $this->assert()->contains('ZF1 Boilerplate App', $response->getBody());
+        $this->assertEquals(200, $response->getHttpResponseCode());
+        $this->assertContains('ZF1 Boilerplate App', $response->getBody());
     }
 
     public function testRequestReturnsHttpError()
@@ -55,8 +50,8 @@ class ApplicationTest extends \Skajdo\TestSuite\Test\TestFixture
         $this->request->setRequestUri('/index/this-address-is-invalid');
         $response = $this->app->handle($this->request);
 
-        $this->assert()->isIdentical(500, $response->getHttpResponseCode());
-        $this->assert()->contains('Ooops ! We have a problem !', $response->getBody());
+        $this->assertEquals(500, $response->getHttpResponseCode());
+        $this->assertContains('Ooops ! We have a problem !', $response->getBody());
     }
 
     public function testRequestReturnsValidResponseOnAdminModule()
@@ -64,14 +59,16 @@ class ApplicationTest extends \Skajdo\TestSuite\Test\TestFixture
         $this->request->setRequestUri('/admin');
         $response = $this->app->handle($this->request);
 
-        $this->assert()->isIdentical(200, $response->getHttpResponseCode());
-        $this->assert()->contains('Admin !', $response->getBody());
+        $this->assertEquals(200, $response->getHttpResponseCode());
+        $this->assertContains('Admin !', $response->getBody());
     }
 
     public function testDummyServiceProviderRegistration()
     {
         $this->app->register(new My_ServiceProvider_DummyServiceProvider());
         $result = $this->app->getServiceManager()->dummyService();
-        $this->assert()->isIdentical('dummy service result', $result);
+
+        $this->assertEquals('dummy service result', $result);
+
     }
 }
