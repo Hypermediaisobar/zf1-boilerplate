@@ -15,7 +15,6 @@
  * @method Zend_Controller_Router_Interface getRouter()
  * @method Zend_Controller_Dispatcher_Interface getDispatcher()
  * @method My_View getView()
- * @method Facebook getFacebook()
  * @method Zend_Log getLog()
  * @method My_Model getModel()
  */
@@ -78,16 +77,6 @@ class My_ServiceManager extends \Skajdo\Container\Container
                 ->setLayout('default')
             ;
             return $view;
-        });
-
-        $this['facebook'] = $this->share(function(My_ServiceManager $sm){
-            /** @var Zend_Config $options */
-            $options = $sm->getConfig()->get('facebook');
-            $fbConfig = array(
-                'appId' => $options->get('app-id'),
-                'secret' => $options->get('secret'),
-            );
-            return new Facebook($fbConfig);
         });
 
         $this['log'] = $this->share(function(My_ServiceManager $sm){

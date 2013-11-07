@@ -1,9 +1,10 @@
 <?php
 
 /**
- * Class My_ApplicationTest
+ * Test whole application
  */
-class My_ApplicationTest extends PHPUnit_Framework_TestCase {
+class My_ApplicationTest extends PHPUnit_Framework_TestCase
+{
     /**
      * @var My_Application
      */
@@ -63,12 +64,5 @@ class My_ApplicationTest extends PHPUnit_Framework_TestCase {
         $this->assertContains('Admin !', $response->getBody());
     }
 
-    public function testDummyServiceProviderRegistration()
-    {
-        $this->app->register(new My_ServiceProvider_DummyServiceProvider());
-        $result = $this->app->getServiceManager()->dummyService();
 
-        $this->assertEquals('dummy service result', $result);
-
-    }
 }

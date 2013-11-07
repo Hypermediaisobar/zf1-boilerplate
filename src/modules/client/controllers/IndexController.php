@@ -17,11 +17,5 @@ class IndexController extends My_Controller
         $article = \Michelf\Markdown::defaultTransform($article);
 
         $this->view->article = $article;
-        $this->view->facebook = $this->getServiceManager()->getFacebook();
-    }
-
-    public function facebookAction()
-    {
-        $this->view->facebook = $this->getServiceManager()->getFacebook();
     }
 }

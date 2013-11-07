@@ -16,9 +16,4 @@ return array(
         'log-path' => APPLICATION_PATH . '/../log',
         'log-priority' => APPLICATION_ENV == 'development' ? Zend_Log::DEBUG : Zend_Log::WARN,
     ),
-
-    'facebook' => array(
-        'app-id' => 123,
-        'secret' => 123,
-    )
 );
