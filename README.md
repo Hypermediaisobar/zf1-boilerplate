@@ -8,6 +8,7 @@ This application is intended to be used in small or medium sized projects.
 
 ###Features
 
+- works with PHP 5.3.26, 5.4, 5.5
 - easy to deploy
 - has its own **DI** container based on [Pimple](http://pimple.sensiolabs.org/) (very easy to use and fast)
 - you have your own controller and view implementations; you can do whatever you want
@@ -16,7 +17,7 @@ This application is intended to be used in small or medium sized projects.
 - code completion for helpers and view methods - see instructions inside views !
 - modular structure
 - easy testing (see ./tests) with code coverage
-- ability to create and register **service providers** to reuse them in other applications
+- ability to create and register **service providers** to reuse them in other applications using this boilerplate
 
 ###Installation
 
@@ -28,9 +29,17 @@ Run:
 
 Running tests:
 
-    php tests/run.php
+on Linux:
 
-or open **run.php** in your browser.
+    // in your project directory type:
+    ./vendor/bin/phpunit -c ./tests/config.xml ./tests/fixtures
+
+on Windows:
+
+    // open cmd in your project directory and type:
+    test
+    // or, to display phpunit help:
+    phpunit
 
 Now get to work !
 
