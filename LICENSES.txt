@@ -1,0 +1,21 @@
+Name: skajdo/zf1-boilerplate
+Version: dev-master
+Licenses: BSD-3-Clause
+Dependencies:
+    
+  michelf/php-markdown           1.3                  BSD-3-Clause  
+  phpunit/php-code-coverage      1.2.x-dev 10c5b2c    BSD-3-Clause  
+  phpunit/php-file-iterator      dev-master acd6903   BSD-3-Clause  
+  phpunit/php-text-template      dev-master 1eeef10   BSD-3-Clause  
+  phpunit/php-timer              dev-master 19689d4   BSD-3-Clause  
+  phpunit/php-token-stream       dev-master 292f4d5   BSD-3-Clause  
+  phpunit/phpunit                3.7.28               BSD-3-Clause  
+  phpunit/phpunit-mock-objects   1.2.x-dev 3e40f3b    BSD-3-Clause  
+  pimple/pimple                  dev-master 471c7d7   MIT           
+  skajdo/container               1.0.1                MIT           
+  skajdo/zf1                     dev-master 8b9de66   BSD-3-Clause  
+  symfony/dom-crawler            dev-master 7e1239d   MIT           
+  symfony/yaml                   dev-master 1f7cabb   MIT           
+  zendframework/zend-filter      dev-master 0dbe1c1   BSD-3-Clause  
+  zendframework/zend-stdlib      dev-master f440ecf   BSD-3-Clause  
+    

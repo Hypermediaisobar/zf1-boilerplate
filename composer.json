@@ -1,7 +1,7 @@
 {
     "name": "skajdo/zf1-boilerplate",
     "description": "Simple ZF1 implementation to quickly create a ZF1 application",
-    "license": "MIT",
+    "license": "BSD-3-Clause",
     "authors": [
         {
             "name": "Jacek Kobus",
